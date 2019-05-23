@@ -27,7 +27,7 @@ It follows that
 $$P(y_i=-1|x_i, w) = 1-\sigma(w^Tx) = \sigma(-w^Tx)$$
 The final step comes from the properties of the sigmoid function: 
 $$\sigma(-x) = 1-\sigma(x)$$ 
-It is easy to verify - remember that$$\sigma(x) = \frac{1}{1+exp(-x)}$.
+It is easy to verify - remember that $\sigma(x) = \frac{1}{1+exp(-x)}$.
 
 Notice that these expressions can be consolidated:
 $$P(y=y_i|x_i, w) = \sigma(y_iw^Tx_i)$$
