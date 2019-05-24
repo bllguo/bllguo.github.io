@@ -3,8 +3,6 @@ layout: post
 title: Geometry of Logistic Regression
 ---
 
-## Geometric intuition behind logistic regression
-
 It always helps to have an intuition for the geometric meaning of a model. This is typically emphasized in the case of common models such as linear regression, but there are relatively few discussions of this for logistic regression. It is especially interesting in this case to draw the distinction between logistic regression and support vector machines.
 
 In classification, we want to find a decision boundary in feature space that separates our classes. Specifically in logistic regression, which is a linear classifier, we are simply looking for a decision hyperplane. 
