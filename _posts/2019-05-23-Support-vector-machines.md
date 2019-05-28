@@ -19,7 +19,7 @@ Let's begin with the basic linear model:
 
 $$y(x) = w^T\phi(x) + b$$
 
-Which defines a hyperplane in feature space. $\phi(x)$ is an arbitrary feature transformation of our training data $x$. It could be the identity transformation, $\phi(x) = x$; it could be a square transformation $\phi(x) = x^2$. More on this at the very end of the post.
+Which defines a hyperplane in feature space. $\phi(x)$ is an arbitrary feature transformation of our training data $x$. It could be the identity transformation, $\phi(x) = x$; it could be a square transformation $\phi(x) = x^2$. More on this [here](https://bllguo.github.io/Kernels/).
 
 We have $N$ input vectors $x_1, ..., x_N$ and corresponding target values $t_1, ..., t_N$, and $t_n \in \\{-1, 1\\}$. 
 
