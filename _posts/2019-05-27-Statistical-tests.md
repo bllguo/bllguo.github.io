@@ -3,7 +3,7 @@ layout: post
 title: Statistical Tests as Linear Models
 ---
 
-These are some quick and incomplete notes on a [fantastic post from Dr. Jonas Lindeløv](https://lindeloev.github.io/tests-as-linear/)
+These are some quick and incomplete notes on a [fantastic post from Dr. Jonas Lindeløv](https://lindeloev.github.io/tests-as-linear/) - many thanks for an enlightening read!
 
 ## Correlation as linear models
 
