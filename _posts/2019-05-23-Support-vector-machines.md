@@ -129,47 +129,5 @@ This is the reason for the sparsity property of SVM.
 
 ## Comparison to logistic regression
 
-1. Logistic regression: we are finding a separating hyperplane that is maximizing the product of the sigmoid-transformed classification margins, over ALL points in the training set: $\prod_i \sigma(y_iw^Tx_i)$
-2. SVM: we are finding a separating hyperplane that maximizes the margin, the distance to the closest point. Which is by definition reliant only on the nearest support vectors. Other points can be moved or even removed without affecting the SVM solution!
-
-## Kernels
-
-Suppose we have a mapping $\phi : \mathbb{R}^n \rightarrow \mathbb{R}^m$ taking our vectors $x$ in $n$ space to $m$ space. The dot product of $x, y$ in this space is $\phi(x)^T\phi(y)$.
-
-The kernel is a function $k$ corresponding to this dot product:
-
-$$k(x, y) = \phi(x)^T\phi(y)$$
-
-The value of the kernel is in the technique of *kernel substitution*, or the *kernel trick*. We can compute $\phi(x)^T\phi(y)$ by first mapping the data using the feature transformation $\phi$, then taking the dot product. Or, if we know the kernel function, we can simply use that without ever explicitly using or knowing $\phi$ at all! 
-
-![separable]({{ site.baseurl }}/images/separable.jpg)
-
-[Many thanks to Prof. Jordan and UC Berkeley for the image and the following example.](https://people.eecs.berkeley.edu/~jordan/courses/281B-spring04/lectures/lec3.pdf)
-
-In this example image, our data is not linearly separable in $\mathbb{R}^2$. However, if we map it to $\mathbb{R}^3$, it is! 
-
-As an aside - we have taken our linear SVM algorithm and applied it to our transformed data, and gotten a nonlinear algorithm for free! This is the power of kernels.
-
-Back to the kernel trick. Here this feature mapping is:
-
-$$(x_1, x_2) \rightarrow (z_1, z_2, z_3) = (x_1^2, \sqrt{2}x_1x_2, x_2^2)$$
-
-We could calculate $\langle\phi(x_i),\phi(x_j)\rangle$ by taking $x_i, x_j$ into feature space first:
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = \langle(x_{i1}, x_{i2}),(x_{j1}, x_{j2})\rangle$$
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = \langle(x_{i1}^2, \sqrt{2}x_{i1}x_{i2}, x_{i2}^2),(x_{j1}^2, \sqrt{2}x_{j1}x_{j2}, x_{j2}^2)\rangle$$
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = x_{i1}^2x_{j1}^2 + 2x_{i1}x_{i2}x_{j1}x_{j2} + x_{i2}^2x_{j2}^2 $$
-
-Or, if we knew the kernel function corresponding to this feature mapping $\phi$, which is $k(x_i, x_j) = \langle x_i, x_j \rangle^2$, we could have done this:
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = \langle(x_{i1}, x_{i2}),(x_{j1}, x_{j2})\rangle$$
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = (x_{i1}x_{j1} + x_{i2}x_{j2})^2$$
-
-$$\langle\phi(x_i),\phi(x_j)\rangle = x_{i1}^2x_{j1}^2 + 2x_{i1}x_{i2}x_{j1}x_{j2} + x_{i2}^2x_{j2}^2 $$
-
-Which is much less computationally expensive! If we know the kernel function we don't even need $\phi$ explicitly at all!
-
-Notice in our above SVM formulation, we can replace $\phi(x_n)\phi(x_m)$ with kernel functions, allowing us to easily apply the classifier to any arbitrary feature space! 
+1. Logistic regression: we are finding a separating hyperplane that is maximizing the product of the sigmoid-transformed classification margins, over ALL points in the training set: $\prod_i \sigma(y_iw^Tx_i)$. Importantly, logistic regression provides class probabilities for each point $x_i$, which makes sense as the loss function is considering all points.
+2. SVM: we are finding a separating hyperplane that maximizes the margin, the distance to the closest point. Which is by definition reliant only on the nearest support vectors. Other points can be moved or even removed without affecting the SVM solution! This can be beneficial at test time as after training, we can discard everything but those support vectors. On the other hand, SVM does not provide meaningful class probabilities for each point as a result. The decision boundary is not even considering points that are not the support vectors! So while applying a sigmoid transformation to $w^Tx$ to output a probability makes sense in logistic regression, intuitively it does not in SVM.
