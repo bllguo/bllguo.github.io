@@ -3,7 +3,7 @@ layout: post
 title: Support Vector Machines
 ---
 
-Continuing with the theme of the last post, here I'll cover support vector machines (SVM) from the ground-up. This are comparatively more resources out there - most discussions of SVMs do cover the geometry, happily - but nevertheless, it is worth deriving from scratch and comparing to our earlier result.
+Continuing with the theme of the last post, here I'll cover support vector machines (SVM) from the ground-up. Relatively speaking, there are many more resources out there on this - most discussions of SVMs do cover the geometry, happily - but nevertheless, it is worth deriving from scratch and comparing to our earlier result.
 
 Again, in classification, we want to find a decision boundary in feature space that separates our classes. Like logistic regression, support vector machines are linear classifiers at their core. We are simply looking for a decision hyperplane. 
 
