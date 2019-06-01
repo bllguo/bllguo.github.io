@@ -3,7 +3,7 @@ layout: post
 title: Nonparametric Density Estimation
 ---
 
-As I promised another example of an application of kernels [here](https://bllguo.github.io/Kernels/) in the form of kernel density estimation, I thought it made sense to just discuss some simple nonparametric density estimation methods in general.
+While trying to make good on my promise of another example of kernels [here](https://bllguo.github.io/Kernels/) in the form of kernel density estimation, I thought it made sense to also discuss some simple nonparametric density estimation methods in general.
 
 The general problem we want to solve is density estimation. Given a finite set of observations $x_1, ..., x_n$ of a random variable $x$, we wish to estimate its probability density. 
 
