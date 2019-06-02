@@ -190,7 +190,7 @@ And plug that into the above to arrive at:
 
 $$w_n^{(m+1)} = w_n^{(m)}\exp(-\frac{\alpha_m}{2})\exp{(\alpha_mI(y_m(x_n) \neq t_n)}$$
 
-Since $\exp(-\frac{\alpha_m}{2})$ is independent of $n$ it does not affect the successive weightings, which depend on $m$. So we have finally arrived at our AdaBoost update equation:
+Since $\exp(-\frac{\alpha_m}{2})$ is independent of $n$, it is uniform across all $n$ observations, so we are free to drop it. So we have finally arrived at our AdaBoost update equation:
 
 $$w_n^{(m+1)} = w_n^{(m)}\exp{(\alpha_mI(y_m(x_n)\neq t_n))}$$
 
