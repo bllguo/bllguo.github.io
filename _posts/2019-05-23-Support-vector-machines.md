@@ -13,7 +13,7 @@ The question is always: how do we choose the separating hyperplane? Recall from 
 
 All of these colored lines are separating decision lines! Which one will SVM select? 
 
-## Linearly separable SVM - primal
+## 1. Linearly separable SVM - primal
 
 Let's begin with the basic linear model:
 
@@ -79,7 +79,7 @@ $$t_n(w^T\phi(x_n)+b)\geq1, \forall n$$
 
 This is more mathematically convenient.
 
-## Dual formulation
+## 2. Dual formulation
 
 To solve this constrained optimization problem, we can use the Lagrangian. Introduce KKT multipliers $a_n \geq 0$ - one for each constraint $t_n(w^T\phi(x_n)+b) \geq 1$. Take note of the signs - as a result we will have to subtract in the Lagrangian.
 
@@ -111,7 +111,7 @@ $$y(x) = w^T\phi(x) + b$$
 
 $$y(x) = \sum_n a_nt_n\phi(x_n)^T\phi(x_m) + b$$
 
-## KKT and Complementary slackness
+## 3. KKT and Complementary slackness
 
 This optimization satisfies the KKT conditions:
 
@@ -127,7 +127,7 @@ Practically, this means that after training, most of the training data can be di
 
 This is the reason for the sparsity property of SVM. 
 
-## Comparison to logistic regression
+## 4. Comparison to logistic regression
 
 1. Logistic regression: we are finding a separating hyperplane that is maximizing the product of the sigmoid-transformed classification margins, over ALL points in the training set: $\prod_i \sigma(y_iw^Tx_i)$. Importantly, logistic regression provides class probabilities for each point $x_i$, which makes sense as the loss function is considering all points.
 2. SVM: we are finding a separating hyperplane that maximizes the margin, the distance to the closest point. Which is by definition reliant only on the nearest support vectors. Other points can be moved or even removed without affecting the SVM solution! This can be beneficial at test time as after training, we can discard everything but those support vectors. On the other hand, SVM does not provide meaningful class probabilities for each point as a result. The decision boundary is not even considering points that are not the support vectors! So while applying a sigmoid transformation to $w^Tx$ to output a probability makes sense in logistic regression, intuitively it does not in SVM.

@@ -5,7 +5,7 @@ title: Statistical Tests as Linear Models
 
 These are some quick and incomplete notes on a [fantastic post from Dr. Jonas Lindeløv](https://lindeloev.github.io/tests-as-linear/) - many thanks for an enlightening read!
 
-## Correlation as linear models
+## 1. Correlation as linear models
 
 Let's begin with the simple linear regression model:
 
@@ -27,7 +27,7 @@ $$\hat{\beta} = r(x,y)\frac{\sigma_y}{\sigma_x}$$
 
 And if we standardized our data to standard deviations of 1, the slope is exactly the Pearson correlation.
 
-### Ranks
+### 1.1 Ranks
 
 Rank transformation is just replacing a vector of numbers with the integer of their rank. The smallest number becomes 1, the second smallest becomes 2, and so on. 
 
@@ -43,7 +43,7 @@ $$rank(y) = \alpha + \beta rank(x)$$
 
 $$\hat{\beta} = r_{rank}$$
 
-## One-sample t-tests
+## 2. One-sample t-tests
 
 The t-test refers to statistical hypothesis tests where the test statistic is distributed according to Student's t, under the null hypothesis. In the one-sample t-test, we are comparing a sample mean to a known population mean. 
 
@@ -61,7 +61,7 @@ It turns out that the one-sample t-test can be expressed as simply as:
 
 $$y = \alpha$$
 
-## Two-sample t-tests
+## 3. Two-sample t-tests
 
 In a two-sample t-test, we have two i.i.d samples from two respective populations, and we want to compare their means. 
 

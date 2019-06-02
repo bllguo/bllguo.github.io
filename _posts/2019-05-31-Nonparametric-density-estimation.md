@@ -7,7 +7,7 @@ While trying to make good on my promise of another example of kernels [here](htt
 
 The general problem we want to solve is density estimation. Given a finite set of observations $x_1, ..., x_n$ of a random variable $x$, we wish to estimate its probability density. 
 
-## Parametric vs Nonparametric
+## 1. Parametric vs Nonparametric
 
 A parametric approach to density estimation involves specifying an explicit functional form for the density, controlled by some number of parameters. For instance, we might assume a Gaussian density. Then we are trying to fit our data $x$ to:
 
@@ -19,7 +19,7 @@ The number of parameters is a point of emphasis, because parametric approaches a
 
 Nonparametric approaches do not make such strong assumptions about the form of the distribution. However, the tradeoff is that the number of parameters involved grows with the size of the data $n$. Hence, nonparametric approaches are prone to high variance. This will become clearer in the following examples.
 
-## Histogram density estimation
+## 2. Histogram density estimation
 
 Histogram methods are a good simple introduction. Again, we have observations of a continuous random variable $x$ whose density is unknown. To estimate this density with a histogram we simply partition $x$ into distinct bins of width $\Delta_i$ and count the number $n_i$ of observations of $x$ falling in bin $i$. To turn the count into a normalized probability density, we simply divide by $N$ and $\Delta_i$. This is easy to see through geometry - to normalize, we want the area of all the bars to sum to 1. The heights of the bars are $n_i$, the width is $\Delta_i$. So we divide by $N \Delta_i$:
 
@@ -41,7 +41,7 @@ Histogram density estimation has its advantages. It is easily applied in online 
 
 But of course, there are drawbacks. First, the bin edges produce artificial discontinuities that aren't related to the underlying distribution of the data. The second is related to the curse of dimensionality - if we have a $D$ dimensional space and divide it into $M$ bins, we have $M^D$ bins in total! The quantity of data required to provide a meaningful estimate would be extremely large.
 
-## Beyond histograms
+## 3. Beyond histograms
 
 Now lets discuss two of the most common nonparametric estimation methods, kernel density estimators and nearest neighbors. They will handle high dimensionality much more competently. The math involved to reach both models is quite elegant.
 
@@ -64,7 +64,7 @@ $$p(x) = \frac{K}{NV}$$
 
 A beautiful result, but we are not yet done. We don't have $K$ or $V$! We can only determine one of them with the resources (the data $x$) that we have.
 
-### Kernel density estimation
+### 3.1 Kernel density estimation
 
 Suppose we fix $V$ and find $K$ from the data. The simplest example is to assume $R$ as a hypercube centered on $x$. Introducing the Parzen window, a kernel function:
 
@@ -97,7 +97,7 @@ In the case of the Gaussian kernel, we are actually giving some weight to all po
 
 A spectacular visualization of kernel density estimation can be found [here](https://mathisonian.github.io/kde/) - many thanks, Matthew Conlen!
 
-#### Drawbacks
+#### 3.1.1 Drawbacks
 
 Take another look at our final estimate (using Parzen window):
 
@@ -107,7 +107,7 @@ At test time, we have to evaluate this. The cost is $O(n)$! This is not good - i
 
 Furthermore, consider our smoothing parameter $h$ (analogous to our choice of bin width in histogram density estimation). We have to choose a single value of $h$ for the entire density. In regions of high data density, large $h$ will over-smooth. But reducing $h$ leads to noise in low density regions. Optimal choice of $h$ can depend on where we are in the data space!
 
-### Nearest neighbors
+### 3.2 Nearest neighbors
 
 Now lets jump back and fix $K$, then find $V$ from the data. This is conceptually much simpler. Center a sphere at $x$, and allow it to expand until it encompasses $K$ points. The volume of this sphere is $V$!
 
@@ -117,10 +117,10 @@ The general algorithm is:
 
 We are not limited to spheres. That is simply a consequence of using Euclidean distance. We can use other norms like L1 easily.
 
-#### vs. KDE
+#### 3.2.1 Comparison to KDE
 
 The volumes $V$, being dependent on local data density, solve the problem in kernel density estimation of having a single uniform kernel width $h$. If there are few points local to $x$ then $V$ will be large; if there are many points local then $V$ will be small - $V$ will always grow to contain $K$ points. However, we sacrifice the quality of being able to consider all points like if we were using a Gaussian kernel - we are only considering the nearest $K$.
 
-#### Extension to other problems
+#### 3.2.2 Extension to other problems
 
 Nearest neighbors can easily be used in classification or regression tasks. Once we have the $K$ closest points, we can average their target values $y$ to get a prediction in regression, or return the majority class label in classification!

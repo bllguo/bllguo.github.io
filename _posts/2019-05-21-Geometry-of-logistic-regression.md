@@ -13,7 +13,7 @@ But how do we choose the separating hyperplane? Even in the simplest case of a l
 
 All of these colored lines are separating decision lines! Which one will logistic regression select? 
 
-## Logistic regression refresher
+## 1. Logistic regression refresher
 
 Recall in (binary) logistic regression we are modeling the conditional class probabilities:
 
@@ -53,7 +53,7 @@ Notice that these expressions can be consolidated:
 
 $$P(y=y_i|x_i, w) = \sigma(y_iw^Tx_i)$$
 
-## Projections refresher
+## 2. Projections refresher
 
 Projecting a vector $b$ onto a subspace $A$ is simply picking out the part of $b$ that lies in $A$. Take the simplest example, in $\mathbb{R}^2$, of projecting a line $b$ onto another line $A$. The projection $p$ is the part of $b$ along $A$.
 
@@ -73,7 +73,7 @@ $$p = A\hat{x} = \frac{AA^T}{A^TA}b$$
 
 I took some liberties with the notation - recall that $A\cdot b$ is equivalent to $A^Tb$.
 
-## The geometry
+## 3. The geometry
 
 Armed with the above, we are prepared to discuss the geometry.
 
