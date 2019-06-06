@@ -83,7 +83,7 @@ $$A = u_1\sigma_1v_1^T + ... + u_r\sigma_rv_r^T$$
 
 Not only that, but SVD has provided us with bases for all the four fundamental subspaces of $A$!
 
-The singular values $\sigma$ give us an idea of the "importance" of each piece $u\sigma v^T$. In an compression context, for instance, we can discard the pieces with small singular values, with minimal data loss. This idea will be clearer when we discuss PCA.
+The singular values $\sigma$ give us an idea of the "importance" of each piece $u\sigma v^T$. In an compression context, for instance, we can discard the pieces with small singular values, with minimal data loss. 
 
 ## Appendix - Misc. Linear Algebra Proofs
 
