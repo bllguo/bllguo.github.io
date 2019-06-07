@@ -33,7 +33,7 @@ Where $S$ is the covariance matrix. Maximize the projected variance $u_1^TSu_1$ 
 
 $$L = u_1^TSu_1 + \lambda_1(1-u_1^Tu_1)$$
 
-Where $L$ is the Lagrangian. Taking $\frac{\delta L}{\delta u_1}$, we will arrive at a familiar equation:
+Where $L$ is the Lagrangian. Taking $\frac{\partial L}{\partial u_1}$, we will arrive at a familiar equation:
 
 $$Su_1 = \lambda_1u_1$$
 
