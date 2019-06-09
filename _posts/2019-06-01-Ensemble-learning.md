@@ -202,7 +202,7 @@ $$P(y|X, w) = \prod_i P(y=y_i|x_i, w) = \prod_i \sigma(y_iw^Tx_i)$$
 
 Maximizing this is equivalent to minimizing
 
-$$\sum_i\log{1+\exp{(-y_iw^Tx_i)}}$$
+$$\sum_i\log(1+\exp{(-y_iw^Tx_i)})$$
 
 which is just taking the log likelihood and flipping the fraction of the sigmoid to turn the maximization problem into a minimization.
 
