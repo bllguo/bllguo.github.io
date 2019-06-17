@@ -41,7 +41,7 @@ $$p(x) = \sum_z p(z)p(x|z)$$
 
 $$p(x) = \sum_z \prod_k^K (\pi_kN(x|\mu_k, \Sigma_k))^{z_k}$$
 
-Consider what the possible values of $z$ are. They are $K$-dimensional one-hot vectors. So the summation over $z$ is just over $K$ possibilities. Furthermore, if $z_k=1$, notice that the product simplifies to $\pi_kN(x|\mu_k, \Sigma_k)$ as $z_{i\neqk} = 0$.
+Consider what the possible values of $z$ are. They are $K$-dimensional one-hot vectors. So the summation over $z$ is just over $K$ possibilities. Furthermore, if $z_k=1$, notice that the product simplifies to $\pi_kN(x\|\mu_k, \Sigma_k)$ as $z_{i\neq k} = 0$.
 
 $$p(x) = \sum_j^K \pi_jN(x|\mu_j, \Sigma_j)$$
 
@@ -126,11 +126,11 @@ $$\ln p(X|\theta) = \ln(\sum_Z p(X, Z|\theta))$$
 
 where we have introduced the latent variable matrix $Z$. 
 
-We cannot compute this in practice, because we do not observe the latent variables $Z$. What we know about $Z$ is captured by our posterior $p(Z|X, \theta)$. We can use it to compute the expected value of the log-likelihood under this posterior.
+We cannot compute this in practice, because we do not observe the latent variables $Z$. What we know about $Z$ is captured by our posterior $p(Z\|X, \theta)$. We can use it to compute the expected value of the log-likelihood under this posterior.
 
 Consider our current parameters $\theta_0$ and the new parameters $\theta_1$.
 
-In the E-step, we use $\theta_0$ to find the posterior over the latent variables, $p(Z|X, \theta_0)$. We can use it to calculate:
+In the E-step, we use $\theta_0$ to find the posterior over the latent variables, $p(Z\|X, \theta_0)$. We can use it to calculate:
 
 $$Q(\theta, \theta_0) = \sum_Z p(Z|X, \theta_0)\ln p(X, Z|\theta)$$
 
@@ -154,7 +154,7 @@ Treating the variances $\epsilon$ as fixed, we arrive at:
 
 $$\gamma(z_{nk}) = \frac{\pi_k\exp(-\frac{||x^{(n)}-\mu_k||^2}{2\epsilon})}{\sum_j \pi_j\exp(-\frac{||x^{(n)}-\mu_j||^2}{2\epsilon})}$$
 
-As $\epsilon \rightarrow 0$, the term with the smallest value of $||x^{(n)}-\mu_l||^2$ will approach $0$ slowest. So in the limit, $\gamma(z_{nl}) \rightarrow 1 \rightarrow r_{nl}$ while the other posteriors converge to 0. We have obtained the hard assignment of K-means. Recall:
+As $\epsilon \rightarrow 0$, the term with the smallest value of $\\|x^{(n)}-\mu_l\\|^2$ will approach $0$ slowest. So in the limit, $\gamma(z_{nl}) \rightarrow 1 \rightarrow r_{nl}$ while the other posteriors converge to 0. We have obtained the hard assignment of K-means. Recall:
 
 $$r_{nk} = \begin{cases}
 1,  & \text{if }k=\text{arg min}_j ||x_n-\mu_j||^2 \\\
