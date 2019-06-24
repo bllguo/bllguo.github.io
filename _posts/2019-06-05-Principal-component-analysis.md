@@ -23,11 +23,11 @@ $$\bar{x} = \frac{1}{n}\sum_n x_i$$
 
 Hence the variance of the projected data is
 
-$$\sigma^2 = \frac{1}{n}\sum_n(u_1^Tx_i-u_1^\bar{x})^2$$
+$$\sigma^2 = \frac{1}{n}\sum_n(u_1^Tx_i-u_1^T\bar{x})^2$$
 
 $$\sigma^2 = u_1^TSu_1$$
 
-$$S = \frac{1}{n}\sum_n(x_i-\bar{x}(x_i-\bar{x})^T$$
+$$S = \frac{1}{n}\sum_n(x_i-\bar{x}(x_i-\bar{x})^T)$$
 
 Where $S$ is the covariance matrix. Maximize the projected variance $u_1^TSu_1$ with respect to $u_1$, subject to $u_1^Tu_1=1$:
 
