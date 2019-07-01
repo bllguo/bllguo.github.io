@@ -3,7 +3,7 @@ layout: post
 title: Expectation Maximization
 ---
 
-In the last two posts we have seen two examples of the expectation maximization (EM) algorithm at work, finding maximum likelihood solutions for models with latent variables. Now we derive EM for general models, and demonstrate how it maximizes the log-likelihood.
+In the last two posts we have seen two examples of the expectation maximization (EM) algorithm at work, finding maximum-likelihood solutions for models with latent variables. Now we derive EM for general models, and demonstrate how it maximizes the log-likelihood.
 
 ## 1. Decomposing the log-likelihood
 
