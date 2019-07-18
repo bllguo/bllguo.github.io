@@ -4,10 +4,9 @@ title: Probabilistic PCA
 ---
 
 Today let's return to [principal component analysis](https://bllguo.github.io/Principal-component-analysis/) (PCA). Previously we had seen how PCA can be expressed as a variance-maximizing projection of the data onto a lower-dimension space, and how that was equivalent to a reconstruction-error-minimizing projection. Now we will show how PCA is _also_ a maximum likelihood solution to a continuous latent variable model, which provides us several useful benefits, some of which include:
-1. Solvable using [expectation-maximization](https://bllguo.github.io/Expectation-maximization/) (EM) in an efficient manner, where we avoid having to explicit construct the covariance matrix. Of course, we can also alleviate this issue in regular PCA by using singular value decomposition (SVD).
+1. Solvable using [expectation-maximization](https://bllguo.github.io/Expectation-maximization/) (EM) in an efficient manner, where we avoid having to explicitly construct the covariance matrix. Of course, we can also alleviate this issue in regular PCA by using singular value decomposition (SVD).
 2. Handles missing values in the dataset
 3. Permits a Bayesian treatment of PCA
-4. Allows comparisons with probabilistic density modeling techniques
 
 ## 1. Setup
 
