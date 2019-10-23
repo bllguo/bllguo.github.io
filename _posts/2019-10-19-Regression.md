@@ -35,9 +35,9 @@ $$p(y|x, w, \sigma^2) = \prod_{i=1}^{N} N(y_i| w^Tx_i, \sigma^2)$$
 
 Now we can do maximum likelihood estimation to obtain the parameters $w$ and $\sigma^2$:
 
-$$ln(p(y|x, w, \sigma^2)) = \sum_{i=1}^{N} ln(N(y_i| w^Tx_i, \sigma^2))$$
+$$\ln(p(y|x, w, \sigma^2)) = \sum_{i=1}^{N} \ln(N(y_i| w^Tx_i, \sigma^2))$$
 
-$$ln(p(y|x, w, \sigma^2)) = \frac{N}{2}ln\frac{1}{\sigma^2} - \frac{N}{2}ln(2\pi) - \frac{1}{2\sigma^2}E(w)$$
+$$\ln(p(y|x, w, \sigma^2)) = \frac{N}{2}\ln\frac{1}{\sigma^2} - \frac{N}{2}ln(2\pi) - \frac{1}{2\sigma^2}E(w)$$
 
 where:
 
